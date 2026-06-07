@@ -23,9 +23,9 @@ function getDefaultData() {
     linkedin: 'https://www.linkedin.com/in/gabriel-mendes-344b66230/',
     instagram: 'https://www.instagram.com/gabriellm.s_/',
     skills: [
-      { name: 'CSS', icon: '◈', pct: 52.0 },
-      { name: 'JavaScript', icon: '◈', pct: 28.9 },
-      { name: 'HTML', icon: '◈', pct: 19.1 }
+      { name: 'CSS', icon: '◈', pct: 53.5 },
+      { name: 'JavaScript', icon: '◈', pct: 32.8 },
+      { name: 'HTML', icon: '◈', pct: 13.7 }
     ],
     projects: [
       {
