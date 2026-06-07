@@ -51,18 +51,18 @@
       <div class="status-bar" id="statusBar">
         <div class="status-row">
           <span class="status-label">LVL</span>
-          <div class="stat-bar"><div class="stat-fill" style="width: 45%"></div></div>
-          <span class="stat-val">45</span>
+          <div class="stat-bar"><div class="stat-fill" style="width: 23%"></div></div>
+          <span class="stat-val">23</span>
         </div>
         <div class="status-row">
           <span class="status-label">HP</span>
-          <div class="stat-bar"><div class="stat-fill" style="width: 80%"></div></div>
-          <span class="stat-val">80</span>
+          <div class="stat-bar"><div class="stat-fill" style="width: 100%"></div></div>
+          <span class="stat-val">100</span>
         </div>
         <div class="status-row">
           <span class="status-label">AP</span>
-          <div class="stat-bar"><div class="stat-fill" style="width: 60%"></div></div>
-          <span class="stat-val">60</span>
+          <div class="stat-bar"><div class="stat-fill" style="width: 70%"></div></div>
+          <span class="stat-val">70</span>
         </div>
       </div>
     </div>
@@ -75,7 +75,7 @@
 
       <div class="terminal-box">
         <p class="terminal-text" id="bioText" contenteditable="false">
-          Olá! Sou estudante de Ciências da Computação na Universidade Tiradentes — UNIT. Apaixonado por tecnologia, games e desenvolvimento web. Atualmente focado no frontend, onde combino lógica e criatividade para construir interfaces únicas e funcionais. Fã declarado de Fallout New Vegas e do Mojave Wasteland.<span class="cursor"></span>
+          Olá! Sou estudante de Ciências da Computação na Universidade Tiradentes — UNIT. Apaixonado por tecnologia, games e desenvolvimento web. Atualmente focado no frontend, onde combino lógica e criatividade para construir interfaces únicas e funcionais. Fã de Fallout New Vegas e do Mojave Wasteland.<span class="cursor"></span>
         </p>
       </div>
 
@@ -201,6 +201,11 @@
   </div>
 </section>
 
+
+<!-- YouTube iframe (hidden off-screen, min 200x200 required by YT API) -->
+<div id="ytPlayerContainer" style="position:fixed; top:-9999px; left:-9999px; width:200px; height:200px; overflow:hidden;">
+</div>
+
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-logo">VAULT-TEC</div>
@@ -214,57 +219,8 @@
 <!-- ===== BACK TO TOP ===== -->
 <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">▲ TOP</button>
 
-<!-- ===== PROJECT MODAL ===== -->
-<div class="modal-overlay" id="projectModal">
-  <div class="modal">
-    <div class="modal-header">
-      <span class="modal-title" id="modalTitle">NOVO PROJETO</span>
-      <button class="modal-close" onclick="closeModal()">[ FECHAR ]</button>
-    </div>
-    <div class="modal-body">
-      <div class="form-group">
-        <label class="form-label">Nome do Projeto</label>
-        <input class="form-input" id="pName" placeholder="Ex: Calculadora" />
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Descrição Breve</label>
-        <textarea class="form-textarea" id="pDesc" rows="3" placeholder="O que foi feito, quais habilidades foram usadas..."></textarea>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Tecnologias Usadas</label>
-        <div class="tag-input-row">
-          <input class="form-input" id="pTagInput" placeholder="Ex: HTML" onkeydown="if(event.key==='Enter'){event.preventDefault();addTag()}" />
-          <button class="btn-danger" onclick="addTag()" style="white-space:nowrap; padding: 8px 12px; font-size: 0.65rem;">+ ADD</button>
-        </div>
-        <div class="tag-list" id="pTagList"></div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Link do Projeto (opcional)</label>
-        <input class="form-input" id="pLink" placeholder="https://..." />
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Imagem Thumbnail</label>
-        <div class="thumb-upload-area" id="thumbUploadArea" onclick="document.getElementById('pThumbInput').click()">
-          <div id="thumbPreview">
-            <div style="font-size: 0.7rem; letter-spacing: 1px;">CLIQUE PARA ENVIAR IMAGEM</div>
-            <div style="font-size: 0.6rem; color: var(--border-bright); margin-top: 4px;">PNG, JPG, WEBP aceitos</div>
-          </div>
-        </div>
-        <input type="file" id="pThumbInput" accept="image/*" style="display:none;" />
-      </div>
-
-      <div style="display: flex; gap: 10px; margin-top: 8px;">
-        <button class="btn-primary" onclick="saveProject()" style="flex: 1;">[ SALVAR PROJETO ]</button>
-        <button class="btn-danger" id="deleteProjectBtn" onclick="deleteProject()" style="display:none;">[ DELETAR ]</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script src="script.js"></script>
+<script src="audio.js"></script>
 </body>
 </html>
