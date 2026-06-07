@@ -1,17 +1,17 @@
 /* ======================================
-   PIP-BOY AUDIO SYSTEM
-   - Hover & Click sounds via Web Audio API
+   SISTEMA DE ÁUDIO DO PIP-BOY
+   - Sons de Hover & Click via Web Audio API
      (Baseado nos arquivos originais do Fallout:
       ui_pipboy_scroll.wav e ui_pipboy_select.wav
       extraídos do Fallout - Sound.bsa)
-   - Background radio via YouTube IFrame API
+   - Rádio de fundo via YouTube IFrame API
 ====================================== */
 
 (function () {
   'use strict';
 
   /* ======================================
-     WEB AUDIO API — PIP-BOY SOUNDS
+     WEB AUDIO API — SONS DO PIP-BOY
   ====================================== */
   let audioCtx = null;
 
@@ -19,34 +19,34 @@
     if (!audioCtx) {
       audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     }
-    // Resume context if suspended (autoplay policy)
+    // Retoma o contexto se suspenso (política de autoplay)
     if (audioCtx.state === 'suspended') {
       audioCtx.resume();
     }
     return audioCtx;
   }
 
-  // ── Pip-Boy SCROLL / HOVER sound ──
+  // ── Som de SCROLL / HOVER do Pip-Boy ──
   const hoverAudio = new Audio('assets/dial_move.ogg');
   hoverAudio.volume = 0.4;
   function playHoverSound() {
     try {
       hoverAudio.currentTime = 0;
-      hoverAudio.play().catch(e => { /* silent */ });
-    } catch (e) { /* silent */ }
+      hoverAudio.play().catch(e => { /* silencioso */ });
+    } catch (e) { /* silencioso */ }
   }
 
-  // ── Pip-Boy SELECT / CLICK sound ──
+  // ── Som de SELECT / CLICK do Pip-Boy ──
   const clickAudio = new Audio('assets/module_change.ogg');
   clickAudio.volume = 0.6;
   function playClickSound() {
     try {
       clickAudio.currentTime = 0;
-      clickAudio.play().catch(e => { /* silent */ });
-    } catch (e) { /* silent */ }
+      clickAudio.play().catch(e => { /* silencioso */ });
+    } catch (e) { /* silencioso */ }
   }
 
-  // ── TRANSMIT sound (estática de rádio + confirmação) ──
+  // ── Som de TRANSMISSÃO (estática de rádio + confirmação) ──
   function playTransmitSound() {
     try {
       const ctx = getAudioCtx();
@@ -106,11 +106,11 @@
 
       osc1.start(t + 0.2); osc1.stop(t + 0.35);
       osc2.start(t + 0.32); osc2.stop(t + duration);
-    } catch (e) { /* silent */ }
+    } catch (e) { /* silencioso */ }
   }
 
   /* ======================================
-     ATTACH SOUNDS TO UI ELEMENTS
+     VINCULAR SONS AOS ELEMENTOS DE UI
   ====================================== */
   function attachPipBoySounds() {
     const hoverTargets = [
@@ -134,13 +134,13 @@
       '#radioToggle'
     ].join(', ');
 
-    // Hover sounds
+    // Sons de hover
     document.body.addEventListener('mouseenter', function (e) {
       const target = e.target.closest(hoverTargets);
       if (target) playHoverSound();
     }, true);
 
-    // Click sounds
+    // Sons de click
     document.body.addEventListener('click', function (e) {
       const target = e.target.closest(clickTargets);
       if (target) playClickSound();
@@ -156,7 +156,7 @@
   }
 
   /* ======================================
-     YOUTUBE BACKGROUND MUSIC
+     MÚSICA DE FUNDO DO YOUTUBE
   ====================================== */
   const RADIO_TRACKS = [
     { id: 'l7eeEprQ0x4', name: 'Main Title — Fallout New Vegas' }
@@ -199,7 +199,10 @@
         modestbranding: 1,
         rel: 0,
         playsinline: 1,
-        origin: window.location.origin
+        origin: window.location.origin,
+        loop: 1,
+        playlist: RADIO_TRACKS[0].id,
+        start: 1
       },
       events: {
         onReady: function (event) {
@@ -210,17 +213,14 @@
           }
         },
         onStateChange: function (event) {
-          // ENDED (loop)
-          if (event.data === 0) {
-            ytPlayer.playVideo();
-          }
+          // O looping nativo via 'playlist' + 'loop' já cuida disso sem delays extras
         }
       }
     });
   }
 
   /* ======================================
-     INIT
+     INICIALIZAÇÃO
   ====================================== */
   document.addEventListener('DOMContentLoaded', () => {
     attachPipBoySounds();

@@ -1,4 +1,4 @@
-/* ===== CSS VARIABLES ===== */
+/* ===== VARIÁVEIS CSS ===== */
     :root {
       --amber: #f5a623;
       --amber-dark: #c47d0e;
@@ -22,7 +22,7 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
-    /* ===== BODY & BACKGROUND ===== */
+    /* ===== CORPO E FUNDO ===== */
     body {
       background-color: var(--bg);
       color: var(--text);
@@ -32,7 +32,7 @@
       position: relative;
     }
 
-    /* CRT Scanlines overlay */
+    /* Sobreposição de linhas de varredura CRT */
     body::before {
       content: '';
       position: fixed;
@@ -48,7 +48,7 @@
       z-index: 9999;
     }
 
-    /* CRT flicker */
+    /* Cintilação CRT */
     body::after {
       content: '';
       position: fixed;
@@ -66,7 +66,7 @@
       99.5% { opacity: 0.92; }
     }
 
-    /* ===== NOISE TEXTURE ===== */
+    /* ===== TEXTURA DE RUÍDO ===== */
     .noise {
       position: fixed;
       inset: 0;
@@ -76,16 +76,16 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
 
-    /* ===== SCROLLBAR ===== */
+    /* ===== BARRA DE ROLAGEM ===== */
     ::-webkit-scrollbar { width: 8px; background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--amber-dark); border: 1px solid var(--border-bright); }
 
-    /* ===== UTILITY ===== */
+    /* ===== UTILITÁRIOS ===== */
     .glow-amber { text-shadow: 0 0 8px var(--amber), 0 0 20px var(--amber-dark); }
     .glow-green { text-shadow: 0 0 8px var(--green), 0 0 20px var(--green-dim); }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-    /* ===== NAVBAR ===== */
+    /* ===== BARRA DE NAVEGAÇÃO ===== */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -149,7 +149,7 @@
       text-shadow: 0 0 8px var(--amber);
     }
 
-    /* Hamburger */
+    /* Menu Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -166,7 +166,7 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-    /* Mobile nav */
+    /* Navegação Mobile */
     @media (max-width: 768px) {
       .hamburger { display: flex; }
       .nav-links {
@@ -185,7 +185,7 @@
       .nav-links a { padding: 12px 16px; display: block; }
     }
 
-    /* ===== HERO / ABOUT SECTION ===== */
+    /* ===== SEÇÃO HERO / SOBRE ===== */
     #sobre {
       min-height: 100vh;
       display: flex;
@@ -195,7 +195,7 @@
       overflow: hidden;
     }
 
-    /* Decorative grid bg */
+    /* Fundo de grade decorativa */
     #sobre::before {
       content: '';
       position: absolute;
@@ -217,7 +217,7 @@
       z-index: 1;
     }
 
-    /* Pip-Boy style photo container */
+    /* Contêiner de foto estilo Pip-Boy */
     .photo-container {
       position: relative;
     }
@@ -245,7 +245,7 @@
       display: block;
     }
 
-    /* Placeholder when no photo */
+    /* Placeholder quando não há foto */
     .pip-frame .photo-placeholder {
       width: 100%;
       height: 100%;
@@ -281,7 +281,7 @@
       pointer-events: none;
     }
 
-    /* Photo upload button */
+    /* Botão de envio de foto */
     .photo-upload-btn {
       margin-top: 14px;
       width: 280px;
@@ -353,7 +353,7 @@
 
     .stat-val { color: var(--amber-glow); width: 30px; text-align: right; font-size: 0.65rem; }
 
-    /* About text */
+    /* Texto sobre */
     .about-content {}
 
     .section-eyebrow {
@@ -456,7 +456,7 @@
       .vault-header { font-size: 2.8rem; }
     }
 
-    /* ===== SECTION HEADER ===== */
+    /* ===== CABEÇALHO DA SEÇÃO ===== */
     .section-header {
       text-align: center;
       margin-bottom: 60px;
@@ -490,7 +490,7 @@
       box-shadow: 0 0 8px var(--amber);
     }
 
-    /* ===== DIVIDER ===== */
+    /* ===== DIVISOR ===== */
     .divider {
       width: 100%;
       height: 1px;
@@ -498,7 +498,7 @@
       margin: 0;
     }
 
-    /* ===== SECTION PADDING ===== */
+    /* ===== ESPAÇAMENTO DA SEÇÃO ===== */
     section {
       padding: 90px 20px;
       position: relative;
@@ -506,7 +506,7 @@
 
     section:nth-child(even) { background: var(--bg-mid); }
 
-    /* ===== PORTFOLIO SECTION ===== */
+    /* ===== SEÇÃO DE PORTFÓLIO ===== */
     #portfolio { background: var(--bg); }
 
     .portfolio-grid {
@@ -578,7 +578,7 @@
       color: var(--border-bright);
     }
 
-    /* Project number badge */
+    /* Emblema de número do projeto */
     .card-number {
       position: absolute;
       top: 10px; left: 10px;
@@ -592,7 +592,7 @@
       text-shadow: 0 0 6px var(--amber);
     }
 
-    /* Upload overlay for cards */
+    /* Sobreposição para os cartões */
     .card-thumb-actions {
       position: absolute;
       inset: 0;
@@ -659,7 +659,7 @@
       line-height: 1.7;
     }
 
-    /* Add project card */
+    /* Cartão para adicionar projeto */
     .add-project-card {
       background: transparent;
       border: 1px dashed var(--border-bright);
@@ -695,7 +695,7 @@
       text-transform: uppercase;
     }
 
-    /* Project modal */
+    /* Modal de projeto */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -872,7 +872,7 @@
     }
     .btn-danger:hover { background: rgba(255,59,59,0.1); }
 
-    /* ===== SKILLS SECTION ===== */
+    /* ===== SEÇÃO DE SKILLS ===== */
     #skills { background: var(--bg-mid); }
 
     .skills-layout {
@@ -944,7 +944,7 @@
       opacity: 0.6;
     }
 
-    /* Pip segments inside bar */
+    /* Segmentos dentro da barra */
     .skill-bar-track::before {
       content: '';
       position: absolute;
@@ -960,7 +960,7 @@
       pointer-events: none;
     }
 
-    /* SPECIAL stats */
+    /* Estatísticas S.P.E.C.I.A.L. */
     .special-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -1025,7 +1025,7 @@
       box-shadow: 0 0 4px var(--amber);
     }
 
-    /* ===== CONTACT SECTION ===== */
+    /* ===== SEÇÃO DE CONTATO ===== */
     #contato { background: var(--bg); }
 
     .contact-grid {
@@ -1112,7 +1112,7 @@
     .form-status.success { color: var(--green); text-shadow: 0 0 6px var(--green); }
     .form-status.error { color: var(--red); }
 
-    /* ===== FOOTER ===== */
+    /* ===== RODAPÉ ===== */
     footer {
       background: var(--bg-panel2);
       border-top: 1px solid var(--border-bright);
@@ -1138,7 +1138,7 @@
     .footer-text a { color: var(--amber-dim); text-decoration: none; }
     .footer-text a:hover { color: var(--amber); }
 
-    /* ===== BACK TO TOP ===== */
+    /* ===== VOLTAR AO TOPO ===== */
     #backToTop {
       position: fixed;
       bottom: 30px; right: 30px;
@@ -1158,7 +1158,7 @@
     #backToTop.visible { opacity: 1; pointer-events: all; }
     #backToTop:hover { background: rgba(245,166,35,0.1); box-shadow: 0 0 12px rgba(245,166,35,0.3); }
 
-    /* ===== ANIMATIONS ===== */
+    /* ===== ANIMAÇÕES ===== */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -1166,7 +1166,7 @@
     }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* ===== EDIT MODE INDICATOR ===== */
+    /* ===== INDICADOR DO MODO DE EDIÇÃO ===== */
     .edit-controls {
       position: fixed;
       bottom: 30px; left: 30px;
@@ -1195,7 +1195,7 @@
       background: rgba(245,166,35,0.07);
     }
 
-    /* Editable elements */
+    /* Elementos editáveis */
     [contenteditable="true"] {
       outline: 1px dashed var(--amber-dim);
       padding: 2px 4px;
@@ -1208,7 +1208,7 @@
       background: rgba(245,166,35,0.05);
     }
 
-    /* ===== MOBILE RESPONSIVE ===== */
+    /* ===== RESPONSIVIDADE MOBILE ===== */
     @media (max-width: 600px) {
       .vault-header { font-size: 2.2rem; }
       .section-header h2 { font-size: 2.2rem; }
@@ -1221,7 +1221,7 @@
       .radio-player { bottom: 70px; right: 12px; left: 12px; width: auto; }
     }
 
-    /* ===== PIP-BOY RADIO PLAYER ===== */
+    /* ===== REPRODUTOR DE RÁDIO PIP-BOY ===== */
     .radio-player {
       position: fixed;
       bottom: 30px;
@@ -1294,7 +1294,7 @@
       border: 1px solid var(--border);
     }
 
-    /* Equalizer bars */
+    /* Barras do equalizador */
     .radio-eq {
       display: flex;
       align-items: flex-end;

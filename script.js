@@ -1,5 +1,5 @@
 /* ======================================
-     DATA STORE (localStorage)
+     ARMAZENAMENTO DE DADOS (localStorage)
   ====================================== */
 const STORAGE_KEY = 'vaulttec_portfolio_v3';
 
@@ -71,7 +71,7 @@ let currentTags = [];
 let thumbBase64 = '';
 
 /* ======================================
-   INIT
+   INICIALIZAÇÃO
 ====================================== */
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('footerYear').textContent = new Date().getFullYear();
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ======================================
-   APPLY DATA TO DOM
+   APLICAR DADOS AO DOM
 ====================================== */
 function applyData() {
   const d = appData;
@@ -100,7 +100,7 @@ function setEditable(id, html) {
 }
 
 /* ======================================
-   SKILLS RENDER
+   RENDERIZAÇÃO DE SKILLS
 ====================================== */
 function renderSkills() {
   const container = document.getElementById('skillsList');
@@ -126,7 +126,7 @@ function renderSkills() {
       `;
     container.appendChild(div);
   });
-  // Animate bars on scroll
+  // Animar barras ao rolar
   animateBars();
 }
 
@@ -145,7 +145,7 @@ function animateBars() {
 }
 
 /* ======================================
-   SPECIAL STATS
+   ESTATÍSTICAS S.P.E.C.I.A.L.
 ====================================== */
 const SPECIAL = [
   { l: 'S', name: 'STRENGTH', val: 6 },
@@ -177,7 +177,7 @@ function renderSpecial() {
 }
 
 /* ======================================
-   PORTFOLIO RENDER
+   RENDERIZAÇÃO DO PORTFÓLIO
 ====================================== */
 function renderPortfolio() {
   const grid = document.getElementById('portfolioGrid');
@@ -214,14 +214,14 @@ function renderPortfolio() {
     grid.appendChild(card);
   });
 
-  // Re-init animations
+  // Reinicializar animações
   setTimeout(() => initAnimations(), 50);
 }
 
 
 
 /* ======================================
-   CONTACT FORM VALIDATION
+   VALIDAÇÃO DO FORMULÁRIO DE CONTATO
 ====================================== */
 document.getElementById('contactForm').addEventListener('submit', function (e) {
   e.preventDefault();
@@ -231,7 +231,7 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
   const email = document.getElementById('cEmail').value.trim();
   const msg = document.getElementById('cMsg').value.trim();
 
-  // Name
+  // Nome
   const fgName = document.getElementById('fg-name');
   const errName = document.getElementById('err-name');
   if (!name || name.length < 2) {
@@ -256,7 +256,7 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
     errEmail.textContent = '';
   }
 
-  // Message
+  // Mensagem
   const fgMsg = document.getElementById('fg-msg');
   const errMsg = document.getElementById('err-msg');
   if (!msg || msg.length < 10) {
@@ -325,7 +325,7 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
   }
 });
 
-/* Real-time validation on input */
+/* Validação em tempo real ao digitar */
 ['cName', 'cEmail', 'cMsg'].forEach(id => {
   document.getElementById(id).addEventListener('input', () => {
     const fgId = id === 'cName' ? 'fg-name' : id === 'cEmail' ? 'fg-email' : 'fg-msg';
@@ -348,7 +348,7 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
 });
 
 /* ======================================
-   NAVBAR
+   BARRA DE NAVEGAÇÃO (NAVBAR)
 ====================================== */
 function initNav() {
   const hamburger = document.getElementById('hamburger');
@@ -358,7 +358,7 @@ function initNav() {
     navLinks.classList.toggle('open');
   });
 
-  // Close on link click
+  // Fechar ao clicar em um link
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       hamburger.classList.remove('open');
@@ -366,16 +366,16 @@ function initNav() {
     });
   });
 
-  // Active link on scroll
+  // Link ativo ao rolar
   const sections = ['sobre', 'portfolio', 'skills', 'contato'];
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
 
-    // Back to top
+    // Voltar ao topo
     const btn = document.getElementById('backToTop');
     btn.classList.toggle('visible', scrollY > 400);
 
-    // Active nav
+    // Navegação ativa
     let current = 'sobre';
     sections.forEach(id => {
       const el = document.getElementById(id);
@@ -389,7 +389,7 @@ function initNav() {
 }
 
 /* ======================================
-   FADE-IN ANIMATIONS
+   ANIMAÇÕES DE FADE-IN
 ====================================== */
 function initAnimations() {
   const observer = new IntersectionObserver((entries) => {
